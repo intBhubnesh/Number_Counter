@@ -25,24 +25,24 @@ function Setting({settings, setSettings, setCount, setPage }) {
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
 
-        <div className="flex items-center justify-center mx-auto mt-10 size-48">
+        <div className="flex items-center justify-center mx-auto mt-5 md:mt-10 size-48 ">
             <img src={cow} alt="cow Image" />
         </div>
-        <h1 className="mt-3 font-semibold text-7xl">Settings</h1>
+        <h1 className="mt-3 text-5xl font-semibold md:text-7xl">Settings</h1>
         <div>
-            <div className="grid w-full grid-cols-2 grid-rows-2 gap-5 p-5 rounded-xl bg-dark/10 backdrop-blur-md">
+            <div className="grid w-full grid-cols-2 grid-rows-5 gap-4 p-2 md:grid-rows-2 rounded-xl bg-dark/10 backdrop-blur-md">
                     {/* counter customisation */}
-                    <div className="col-span-1 row-span-2 p-5 border-[2px] border-light/50 rounded-xl flex flex-col justify-evenly items-center">
+                    <div className="md:col-span-1 md:row-span-2 col-span-2 row-span-3 gap-2 p-5 border-[2px] border-light/50 rounded-xl flex flex-col justify-between items-stretch">
                         {/* <h3 className="text-xl font-medium">Limit</h3> */}
-                        <div className="flex items-center justify-around gap-2">
+                        <div className="flex items-center justify-around w-full gap-2">
                             <label htmlFor="origin">Start Value</label>
                             <input id="origin" type="text" value={temp.origin} className="rounded-lg bg-dark/50 h-8 w-16 px-2 text-sm border-light/40 border-[1px]" onChange={(e) => updateSetting('origin',Number(e.target.value))} />
                         </div>
-                        <div className="flex items-center justify-around gap-2">
+                        <div className="flex items-center justify-around w-full gap-2">
                             <label htmlFor="lower">lowerBound</label>
                             <input id="lower" type="text" value={temp.lowerBound} className="rounded-lg bg-dark/50 h-8 w-16 px-2 text-sm border-light/40 border-[1px]" onChange={(e) => updateSetting('lowerBound',Number(e.target.value)) } />
                         </div>
-                        <div className="flex items-center justify-around gap-2">
+                        <div className="flex items-center justify-around w-full gap-2">
                             <label htmlFor="upper">Upper Limit</label>
                             <input id="upper" type="text" value={temp.upperBound} className="rounded-lg bg-dark/50 h-8 w-16 px-2 text-sm border-light/40 border-[1px]" onChange={(e) => updateSetting('upperBound',Number(e.target.value))} />
                         </div>
@@ -52,18 +52,18 @@ function Setting({settings, setSettings, setCount, setPage }) {
                         </div>
                 </div>
                 {/* theme color */}
-                <div className="col-span-1 row-span-1 p-5 border-[2px] border-light/50 rounded-xl flex  flex-col items-center justify-center gap-4">
+                <div className="col-span-1 row-span-2 md:row-span-1 p-5 border-[2px] border-light/50 rounded-xl flex  flex-col items-center justify-center gap-4">
                     <h3>Theme Color</h3>
-                    <div className="inline-flex items-center justify-around gap-4">
+                    <div className="inline-flex items-center justify-around gap-1 md:gap-4">
                         {['pink', 'rose', 'blue', 'green', 'light'].map((color, index) => (
                         <div className={`rounded-full bg-${color} size-6`} key={index} onClick={() => updateSetting('theme', color)}></div>
                         ))}
                     </div>
                 </div>
                 {/* Action buttton */}
-                <div className="col-span-1 row-span-1 p-5 border-[2px] border-light/50 rounded-xl  flex flex-col items-center justify-center gap-4">
+                <div className="col-span-1 row-span-2 md:row-span-1 p-5  border-[2px] border-light/50 rounded-xl  flex flex-col items-center justify-center gap-4">
                     <h1>Apply Settings</h1>
-                    <div className="flex justify-between gap-4">
+                    <div className="flex justify-between gap-2 md:gap-4">
                     <motion.button
                         whileHover={{
                             backgroundColor: "#f5f5f5", // Light color
@@ -73,14 +73,14 @@ function Setting({settings, setSettings, setCount, setPage }) {
                         onClick={() => {
                             applySetting()
                         }}
-                        className="py-2 px-5 text-sm  border-[1px] rounded-lg  border-light/40">Apply</motion.button>
+                        className="py-2 md:px-5 px-3 text-sm  border-[1px] rounded-lg  border-light/40">Apply</motion.button>
                     <motion.button onClick={() => setPage('main')}
                         whileHover={{
                             backgroundColor: "#f5f5f5", // Light color
                             color: "#333",               // Dark text color
                             transition: { duration: 0.3, ease: "easeInOut" }
                         }}
-                        className="py-2 px-5 text-sm  border-[1px] rounded-lg  border-light/40"
+                        className="py-2 md:px-5 px-3 text-sm  border-[1px] rounded-lg  border-light/40"
                     >Cancel</motion.button>
                     </div>
                 </div>

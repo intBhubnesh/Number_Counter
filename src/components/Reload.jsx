@@ -13,7 +13,7 @@ function Reload({ setCount, setPage }) {
         <div className="flex items-center justify-center mx-auto mt-10 size-60">
             <img src={lion} alt="reboot image" />
         </div>
-        <h1 className="mt-3 font-semibold text-7xl">Reset Counter ?</h1>
+        <h1 className="mt-3 font-semibold text-center text-7xl">Reset Counter ?</h1>
         <div className="flex items-center gap-10 mt-10">
             <motion.button
                 whileHover={{
