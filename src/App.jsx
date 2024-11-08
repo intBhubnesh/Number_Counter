@@ -1,10 +1,20 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import NavBar from './components/NavBar'
 import Reload from './components/Reload'
 import Setting from './components/Setting'
+import Preloader from './components/PreLoader'
 
 function App() {
+    // New loading state
+    const [loading, setLoading] = useState(true);
+
+     // Simulate loading effect
+     useEffect(() => {
+        setTimeout(() => setLoading(false), 2000); // adjust timing as needed
+    }, []);
+
+
 
     // setting parameters
     const [settings, setSettings] = useState({
@@ -19,6 +29,15 @@ function App() {
     const [count, setCount] = useState(settings.origin)
     const [totalClicks, setTotalClicks] = useState(settings.upperBound - settings.lowerBound)
     const [page, setPage] = useState('main')
+
+
+    if (loading) {
+
+        // Show preloader while loading is true
+        return <AnimatePresence>
+            <Preloader />;
+            </AnimatePresence>
+    }
 
     return <>
         <div className=''>
